@@ -1,4 +1,4 @@
-# HatClient
-## A custom client for hack.chat
+## HatClient
+A custom client for hack.chat
 
-test234
+**COMING SOON**
