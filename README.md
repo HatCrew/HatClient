@@ -1,4 +1,5 @@
-## HatClient
-A custom client for <a href="https://github.com/AndrewBelt/hack.chat">hack.chat</a>
+![HatClient](http://paswd4.com/s/x84e3q.png)
 
-**COMING SOON**
+##About
+
+Coming soon
