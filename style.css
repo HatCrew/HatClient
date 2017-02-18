@@ -27,7 +27,7 @@ body {
 	display: block;
 	margin: 0 auto;
 	position: absolute;
-	width: 75%;
+	width: 75%;	font-size: 18px;
 	resize: none;
 	height: 5vh;
 	overflow: auto;
@@ -40,14 +40,37 @@ body {
 	border-radius: 10px;
 	padding: 5px;
 	outline: none;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Roboto Mono', sans-serif;
 }
 #chatinput:focus {
 	border: 2px solid #96B6FF;
 }
 .hidden {
 	display: none;
+}/*
+.chatlogin {
+	display: block;
+	width: 25%;
+	height: 50vh;
+	/*background: #EDECEC;
+	border: 3px solid #E3E2E2;
+	margin: 0 auto;
+	text-align: center;
+	border: 3px solid blue;
 }
+.chatlogin select {
+	padding: 5px;
+	border: 1px solid #B9B7B7;
+	outline: none;
+	margin-bottom: 5px;
+}
+.chatlogin input {
+	padding: 5px;
+	width: 75%;
+	margin-bottom: 5px;
+	outline: none;
+	border: 1px solid #B9B7B7;
+}*/
 .chatlogin {
 	margin: 0 auto;
 	width: 35%;
@@ -183,7 +206,7 @@ pre {
 	text-decoration: none;
 }
 .text {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Roboto Mono', sans-serif;
 	display: inline;
 	font-size: 20px;
 	max-width: 75%;
@@ -277,4 +300,82 @@ pre {
 		margin-bottom: 5vh;
 		padding-top: 4vh;
 	}
-}
+}/*
+@media only screen and (max-width: 700px) {
+	footer {
+		display: none;
+	}
+	.centeredlink {
+		font-size: 6px;
+	}
+	.chatlogin h3 {
+		display: none;
+	}
+	.chatlogin {
+		margin: 0 auto;
+		width: 50%;
+		height: 65%;
+		border: 1px solid #F1F1F1;
+		border-radius: 10px;
+		background: #FAFAFA;
+		box-shadow: 0px 0px 3px black;
+		overflow: auto;
+		padding-top: 50px;
+	}
+	.chatlogin input[type='text'], input[type='password'] {
+		display: block;
+		margin: 0 auto;
+		width: 200px;
+		height: 15px;
+		padding: 5px;
+		border: 2px solid lightgrey;
+		transition: border 0.25s;
+		border-radius: 5px;
+		outline: none;
+	}
+	.chatlogin input[type='password'] {
+	margin-top: -15px;
+		margin-bottom: 5px;
+	}
+	#room {
+		margin-bottom: 5px;
+	}
+	.chatlogin select {
+		display: block;
+		margin: 0 auto;
+		width: 215px;
+		height: 30px;
+		padding: 5px;
+		border: 2px solid lightgrey;
+		transition: border 0.25s;
+		border-radius: 5px;
+		outline: none;
+		margin-bottom: -15px;
+	}
+	.chatlogin input[type='text']:focus, input[type='password']:focus {
+		border: 2px solid #96B6FF;
+	}
+	.chatlogin input[type='submit'] {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 5px;
+		width: 215px;
+		height: 30px;
+		border: 2px solid lightgrey;
+		transition: border 0.5s, background 0.5s;
+		border-radius: 5px;
+		outline: none;
+	}
+	.chatlogin input[type='submit']:hover , input[type='submit']:focus {
+		background: #96B6FF;
+		border: 2px solid #96B6FF;
+		cursor: pointer;
+	}
+	.loginlogo {
+		display: block;
+		margin: 0 auto;
+		width: 150px;
+		margin-bottom: 5vh;
+		padding-top: 4vh;
+	}
+}*/
