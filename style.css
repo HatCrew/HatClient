@@ -197,6 +197,7 @@ pre {
 	padding-right: 25px;
 	font-weight: bold;
 	text-decoration: underline;
+	font-family: 'Roboto Mono', sans-serif;
 }
 .trip {
 	display: inline;
@@ -206,7 +207,7 @@ pre {
 	text-decoration: none;
 }
 .text {
-	font-family: 'Roboto Mono', sans-serif;
+	font-family: 'Oswald', sans-serif;
 	display: inline;
 	font-size: 20px;
 	max-width: 75%;
