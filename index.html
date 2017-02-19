@@ -28,7 +28,33 @@
 		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
 		<div class="nav-content">
+			<!--<ul class="tabs tabs-transparent">
+				<li class="tab"><a class="active" href="#test1">?programming</a></li>
+				<li class="tab"><a href="#test2">?programming</a></li>
+				<li class="tab"><a href="#test3">?29dh1bsf</a></li>
+				<li class="tab"><a href="#test4">?a9h2dnna</a></li>
+			</ul>-->
+			<!--<div class="nav-wrapper container">
+				<ul class="right">
+					<li><a href="sass.html"><i class="material-icons">add</i></a></li>
+					<li><a href="sass.html"><i class="material-icons">close</i></a></li>
+					<li><a href="sass.html"><i class="material-icons">refresh</i></a></li>
+					<li><a href="sass.html"><i class="material-icons">settings</i></a></li>
+					<li><a href="sass.html"><i class="material-icons">list</i></a></li>
+				</ul>
+			</div>-->
 		</div>
+		<!--<div class="fixed-action-btn horizontal click-to-toggle">
+			<a class="btn-floating btn-large black">
+				<i class="material-icons">menu</i>
+			</a>
+		<ul>
+			<li><a class="btn-floating green"><i class="material-icons">add</i></a></li>
+			<li><a class="btn-floating red"><i class="material-icons">close</i></a></li>
+			<li><a class="btn-floating blue"><i class="material-icons">refresh</i></a></li>
+			<li><a class="btn-floating grey"><i class="material-icons">settings</i></a></li>
+		</ul>
+		</div>-->
 	</nav>
 	<nav id="optionsNav" class="nav-extended black hidden" role="navigation">
 		<div class="nav-wrapper container"><span>Chat Options:</span>
@@ -38,10 +64,10 @@
 			</ul>
 		</div>
 	</nav>
-  <div id="welcomepage" class="container loginform hide-on-med-and-down">
+  <div id="welcomepage" class="container loginform">
     <div class="col s12">
       <div class="row">
-        <div class="input-field col s4 offset-s4">
+        <div class="input-field col s9 offset-s1">
           <select id="serverchoice">
 		<option value="hackchat">hack.chat</option>
 		<option value="toastychat">chat.toastystoemp.com</option>
@@ -52,63 +78,27 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s4 offset-s4">
+        <div class="input-field col s9 offset-s1">
           <input id="room" type="text" placeholder="Room (eg: programming, no ?)">
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s4 offset-s4">
+        <div class="input-field col s9 offset-s1">
           <input id="username" type="text" placeholder="Username">
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s4 offset-s4">
+        <div class="input-field col s9 offset-s1">
           <input id="password" type="password" placeholder="Password">
         </div>
       </div>
       <div class="row">
-        <div class="col s4 offset-s4 center-align">
+        <div class="col s9 offset-s1 center-align">
           <button class="btn waves-effect waves-light" onclick="initialize()">Login</button>
         </div>
       </div>
     </div>
   </div>
-  <div id="welcomepagemobile" class="container loginform hide-on-large-only">
-    <div class="col s12">
-      <div class="row">
-        <div class="input-field col s10 offset-s1">
-          <select id="serverchoice">
-		<option value="hackchat">hack.chat</option>
-		<option value="toastychat">chat.toastystoemp.com</option>
-		<option value="32chat">chat.32ch.org</option>
-		<option value="sleepychat">sleepykev.tk:8080</option>
-          </select>
-          <label>Server/Fork</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s10 offset-s1">
-          <input id="room" type="text" placeholder="Room (eg: programming, no ?)">
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s10 offset-s1">
-          <input id="username" type="text" placeholder="Username">
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s10 offset-s1">
-          <input id="password" type="password" placeholder="Password">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s10 offset-s1 center-align">
-          <button class="btn waves-effect waves-light" onclick="initialize()">Login</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
   <div id="main" class="hidden">
   <ul id="messages" class="collection">
   
