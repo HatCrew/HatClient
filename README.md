@@ -12,10 +12,12 @@
 ## Contributors/Credits
 - Thanks to [@marzavec](https://github.com/marzavec) for adding auto-scroll, and motivating me
 
-Issues/Bugs
------------
-
-**NONE!**
+Commands
+========
+There are a few built-in commands for HatClient
+- `.help` displays all commands
+- `.ban [user]` ban's a user if the user connected to HatClient is a mod
+- `.online` displays the current users online in the current room
 
 ## Adding a Server/Fork to HatClient
 #### (I plan to automate this in the future)
