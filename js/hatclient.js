@@ -236,18 +236,29 @@ function pushMessage(args) {
 		}
 	}*/
 
-	messageEl.appendChild(textEl)
-
 	// Scroll to bottom
-	var atBottom = isAtBottom()
-	$('#messages').appendChild(messageEl)
+	var atBottom = isAtBottom();
+
+	messageEl.appendChild(textEl);
+	$('#messages').appendChild(messageEl);
+
 	if (atBottom) {
-		messages.scrollTo(0, document.body.scrollHeight)
+		window.scrollTo(0, Math.max( document.body.scrollHeight,
+															document.body.offsetHeight,
+	                       			document.documentElement.clientHeight,
+															document.documentElement.scrollHeight,
+															document.documentElement.offsetHeight ));
+	} else {
+		//unread += 1
 	}
-	
-	//unread += 1
 }
 
 function isAtBottom() {
-            return (messages.innerHeight + messages.scrollY) >= (document.body.scrollHeight - 1)
+	var docHeight = Math.max( document.body.scrollHeight,
+														document.body.offsetHeight,
+                       			document.documentElement.clientHeight,
+														document.documentElement.scrollHeight,
+														document.documentElement.offsetHeight );
+
+	return (docHeight == (window.pageYOffset + window.innerHeight));
 }
