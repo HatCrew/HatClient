@@ -14,7 +14,6 @@ function initialize() {
 	var chatRoom = document.getElementById("room").value;
 	
 	document.getElementById("welcomepage").className = "welcomepage hidden";
-	document.getElementById("welcomepagemobile").className = "welcomepage hidden";
 	document.getElementById("main").className = "";
 	document.getElementById("optionsNav").className = "nav-extended black";
 	
