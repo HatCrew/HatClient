@@ -27,8 +27,17 @@ function initialize() {
            if(message.length <= 0) return;
 
            event.preventDefault();
-           send({ cmd: 'chat', text: message});
-
+		   if (message == ".help") {
+			pushMessage({nick: '## HatClient ##', text: 'Commands: .ban [user], .online'})
+		   } else if (message.substring(0, 5) == ".ban ") {
+			   var userToBan = message.substring(6, message.length);
+			   send({cmd: 'ban', nick: userToBan});
+		   } else if (message == ".online") {
+			    var onlineList = onlineUsers.join(', ') + '.';
+				pushMessage({nick: '## HatClient ##', text: 'Users online: ' + onlineList});
+		   } else {
+           send({cmd: 'chat', text: message});
+		   }
            event.target.value = '';
             
         }
