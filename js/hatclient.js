@@ -72,7 +72,11 @@ function join(channel, cUsername, cPassword, cServer) {
 	ws.onopen = function() {
 		if (myNick) {
 			//localStorageSet('my-nick', myNick)
+			if (cServer == "toastychat") {
+				send({cmd: 'join', channel: channel, nick: cUsername, pass: cPassword})
+			} else {
 			send({cmd: 'join', channel: channel, nick: myNick})
+			}
 		}
 		wasConnected = true
 
