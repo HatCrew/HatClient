@@ -111,17 +111,22 @@ var COMMANDS = {
 	onlineAdd: function(args) {
 		var nick = args.nick
 		userAdd(nick)
-		if ($('#joined-left').checked) {
-			pushMessage({nick: '*', text: nick + " joined"})
-		}
+		pushMessage({nick: '*', text: nick + " joined"})
 	},
 	onlineRemove: function(args) {
 		var nick = args.nick
 		userRemove(nick)
-		if ($('#joined-left').checked) {
-			pushMessage({nick: '*', text: nick + " left"})
-		}
+		pushMessage({nick: '*', text: nick + " left"})
 	},
+}
+function userAdd(nick) {
+	onlineUsers.push(nick);
+}
+function userRemove(nick) {
+	var index = onlineUsers.indexOf(nick)
+	if (index >= 0) {
+		onlineUsers.splice(index, 1)
+	}
 }
 function send(data) {
 	if (ws && ws.readyState == ws.OPEN) {
@@ -139,10 +144,6 @@ function parseLinks(g0) {
 }
 
 function usersClear() {
-	var users = $('#users')
-	while (users.firstChild) {
-		users.removeChild(users.firstChild)
-	}
 	onlineUsers.length = 0
 }
 
@@ -244,7 +245,7 @@ function pushMessage(args) {
 		messages.scrollTo(0, document.body.scrollHeight)
 	}
 	
-	unread += 1
+	//unread += 1
 }
 
 function isAtBottom() {

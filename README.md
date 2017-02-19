@@ -13,7 +13,6 @@ Issues/Bugs
 -----------
 
 * Chat does not auto-scroll
-* Some server messages, such as join/leave notifications, do not show
 * (Probably more)
 
 ## Adding a Server/Fork to HatClient
