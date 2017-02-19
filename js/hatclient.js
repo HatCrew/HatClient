@@ -15,6 +15,7 @@ function initialize() {
 	
 	document.getElementById("welcomepage").className = "welcomepage hidden";
 	document.getElementById("main").className = "";
+	document.getElementById("optionsNav").className = "nav-extended black";
 	
 	join(chatRoom, chatUsername, chatPass, chatServer);
 
