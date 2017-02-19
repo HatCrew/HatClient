@@ -62,6 +62,8 @@ function join(channel, cUsername, cPassword, cServer) {
 		ws = new WebSocket('ws://chat.32ch.org:6060');
 	} else if (cServer == "toastychat") {
 		ws = new WebSocket('wss://chat.toastystoemp.com/chatws');
+	} else if (cServer == "sleepychat") {
+		ws = new WebSocket('ws://sleepykev.tk:6060');
 	} else {
 		alert("An error occurred, check your server selection");
 		window.location.reload();
