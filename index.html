@@ -38,7 +38,7 @@
 			</ul>
 		</div>
 	</nav>
-  <div id="welcomepage" class="container loginform">
+  <div id="welcomepage" class="container loginform hide-on-med-and-down">
     <div class="col s12">
       <div class="row">
         <div class="input-field col s4 offset-s4">
@@ -68,6 +68,41 @@
       </div>
       <div class="row">
         <div class="col s4 offset-s4 center-align">
+          <button class="btn waves-effect waves-light" onclick="initialize()">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="welcomepage" class="container loginform hide-on-large-only">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s10 offset-s1">
+          <select id="serverchoice">
+		<option value="hackchat">hack.chat</option>
+		<option value="toastychat">chat.toastystoemp.com</option>
+		<option value="32chat">chat.32ch.org</option>
+		<option value="sleepychat">sleepykev.tk:8080</option>
+          </select>
+          <label>Server/Fork</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10 offset-s1">
+          <input id="room" type="text" placeholder="Room (eg: programming, no ?)">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10 offset-s1">
+          <input id="username" type="text" placeholder="Username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10 offset-s1">
+          <input id="password" type="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s10 offset-s1 center-align">
           <button class="btn waves-effect waves-light" onclick="initialize()">Login</button>
         </div>
       </div>
