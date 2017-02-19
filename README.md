@@ -9,6 +9,9 @@
 ![Admin and Mod messages](http://paswd4.com/s/b3arqj.png)<br>
 ###This is an **EARLY DEMO**, some features do not work as intended.
 
+## Contributors/Credits
+- Thanks to [@marzavec](https://github.com/marzavec) for adding auto-scroll, and motivating me
+
 Issues/Bugs
 -----------
 
