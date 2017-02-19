@@ -105,7 +105,7 @@ var COMMANDS = {
 		nicks.forEach(function(nick) {
 			userAdd(nick)
 		})
-		pushMessage({nick: '#', text: "HatClient connected to " + chatRoom});
+		// DEBUG pushMessage({nick: '#', text: "HatClient connected to " + chatRoom});
 		pushMessage({nick: '*', text: "Users online: " + nicks.join(", ")})
 	},
 	onlineAdd: function(args) {
@@ -151,7 +151,7 @@ var onlineUsers = []
 var ignoredUsers = []
 
 function pushMessage(args) {
-	console.log("DEBUG - msg: " + JSON.stringify(args));
+	// DEBUG console.log("DEBUG - msg: " + JSON.stringify(args));
 	// Message container
 	var messageEl = document.createElement('li')
 	messageEl.classList.add('collection-item')
