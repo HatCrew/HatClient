@@ -12,8 +12,7 @@
 Issues/Bugs
 -----------
 
-* Chat does not auto-scroll
-* (Probably more)
+**NONE!**
 
 ## Adding a Server/Fork to HatClient
 #### (I plan to automate this in the future)
