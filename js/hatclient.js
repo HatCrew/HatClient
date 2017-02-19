@@ -14,9 +14,7 @@ function initialize() {
 	var chatRoom = document.getElementById("room").value;
 	
 	document.getElementById("welcomepage").className = "welcomepage hidden";
-	//document.getElementById("chatformcont").className = "container";
 	document.getElementById("main").className = "";
-	//document.getElementById("messages").className = "messages";
 	
 	join(chatRoom, chatUsername, chatPass, chatServer);
 
@@ -120,7 +118,6 @@ var COMMANDS = {
 		nicks.forEach(function(nick) {
 			userAdd(nick)
 		})
-		// DEBUG pushMessage({nick: '#', text: "HatClient connected to " + chatRoom});
 		pushMessage({nick: '*', text: "Users online: " + nicks.join(", ")})
 	},
 	onlineAdd: function(args) {
@@ -158,6 +155,16 @@ function parseLinks(g0) {
 	return a.outerHTML
 }
 
+function inviteUser() {
+	var userToInvite = document.getElementById("userToInvite").value;
+	send({cmd: 'invite', nick: userToInvite});
+}
+function ignoreUser() {
+	var userToIgnore = document.getElementById("userToIgnore").value;
+	ignoredUsers.push(userToIgnore);
+	pushMessage({nick: '## HatClient ##', text: 'You are now ignoring messages from ' + userToIgnore});
+}
+
 function usersClear() {
 	onlineUsers.length = 0
 }
@@ -166,12 +173,10 @@ var onlineUsers = []
 var ignoredUsers = []
 
 function pushMessage(args) {
-	// DEBUG console.log("DEBUG - msg: " + JSON.stringify(args));
 	// Message container
 	var messageEl = document.createElement('li')
 	messageEl.classList.add('collection-item')
 	messageEl.classList.add('avatar')
-	//messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle">chat</i>'
 
 	if (args.nick == chatUsername) {
 		messageEl.classList.add('me')
@@ -184,13 +189,9 @@ function pushMessage(args) {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle black">star</i>'
 	}
 	else if (args.admin) {
-		//document.getElementById("userimage").replace = "<i id='userimage' class='material-icons circle green'>verified_user</i>"
-		//messageEl.add('<i class="material-icons circle red">verified_user</i>')
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle red">verified_user</i>'
 	}
 	else if (args.mod) {
-		//document.getElementById("userimage").replace = "<i id='userimage' class='material-icons circle red'>verified_user</i>"
-		//messageEl.add('<i class="material-icons circle green">verified_user</i>')
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle green">verified_user</i>'
 	} else {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle">chat</i>'
@@ -204,12 +205,6 @@ function pushMessage(args) {
 	if (args.nick) {
 		var nickSpanEl2 = document.createElement('span')
 		nickSpanEl2.innerHTML = nickSpanEl2.innerHTML + args.nick + '</span>'
-		/*nickLinkEl.onclick = function() {
-			insertAtCursor("@" + args.nick + " ")
-			$('#chatinput').focus()
-		}*/
-		//var date = new Date(args.time || Date.now())
-		//nickLinkEl.title = date.toLocaleString()
 		nickSpanEl.appendChild(nickSpanEl2)
 	}
 	
@@ -230,26 +225,10 @@ function pushMessage(args) {
 	textEl.classList.add('text')
 
 	textEl.innerHTML = textEl.innerHTML + args.text || ''
-	textEl.innerHTML = textEl.innerHTML.replace(/(\?|https?:\/\/)\S+?(?=[,.!?:)]?\s|$)/g, parseLinks)
 	textEl.innerHTML = textEl.innerHTML.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+	textEl.innerHTML = textEl.innerHTML.replace(/(\?|https?:\/\/)\S+?(?=[,.!?:)]?\s|$)/g, parseLinks)
 	var comingsoon = "Feature coming soon";
-	//textEl.innerHTML = textEl.innerHTML + '</p><a href="#" onclick="ignoredUsers.push(args.nick)" class="secondary-content"><i class="material-icons">volume_off</i></a><a href="#" onclick="alert(comingsoon)" class="secondary-content"><i class="material-icons">textsms</i></a>&nbsp;&nbsp;&nbsp;&nbsp;'
-	//textEl.innerHTML = textEl.innerHTML + '</p><a href="#" onclick="send({cmd: \'invite\', nick: \'args.nick\'})"; class="secondary-content"><i class="material-icons">textsms</i></a>'
-	textEl.innerHTML = textEl.innerHTML + '</p><a href="#" class="secondary-content"><i class="material-icons">settings</i></a>'
-
-	/*if ($('#parse-latex').checked) {
-		// Temporary hotfix for \rule spamming, see https://github.com/Khan/KaTeX/issues/109
-		textEl.innerHTML = textEl.innerHTML.replace(/\\rule|\\\\\s*\[.*?\]/g, '')
-		try {
-			renderMathInElement(textEl, {delimiters: [
-				{left: "$$", right: "$$", display: true},
-				{left: "$", right: "$", display: false},
-			]})
-		}
-		catch (e) {
-			console.warn(e)
-		}
-	}*/
+	textEl.innerHTML = textEl.innerHTML + '</p>'
 
 	// Scroll to bottom
 	var atBottom = isAtBottom();
