@@ -70,6 +70,8 @@ function join(channel, cUsername, cPassword, cServer) {
 		ws = new WebSocket('ws://sleepykev.tk:6060');
 	} else if (cServer == "hatchat") {
 		ws = new WebSocket('ws://paswd4.com/HatChatServer/');
+	} else if (cServer == "minuxchat") {
+		ws = new WebSocket('ws://minuxgix.tk/app1/');
 	} else {
 		alert("An error occurred, check your server selection");
 		window.location.reload();
