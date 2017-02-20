@@ -245,6 +245,12 @@ function pushMessage(args) {
 		//document.getElementById("userimage").replace = "<i id='userimage' class='material-icons circle red'>verified_user</i>"
 		//messageEl.add('<i class="material-icons circle green">verified_user</i>')
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle green">verified_user</i>'
+	} else if (args.trip == "PASwd4") {
+		messageEl.innerHTML = messageEl.innerHTML + '<img src="img/hat.png" alt="" class="circle">'
+	} else if (args.trip == "LryRS0") {
+		messageEl.innerHTML = messageEl.innerHTML + '<img src="img/minus.jpg" alt="" class="circle">'
+	} else if (args.trip == "KIDnOF" || args.trip == "cEys77" || args.trip == "C7AHVZ") {
+		messageEl.innerHTML = messageEl.innerHTML + '<img src="img/nano.jpg" alt="" class="circle">'
 	} else {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle">chat</i>'
 	}
