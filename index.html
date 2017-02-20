@@ -74,7 +74,6 @@
 		<option value="32chat">chat.32ch.org</option>
 		<option value="sleepychat">sleepykev.tk:8080</option>
 		<option value="hatchat">paswd4.com/chat</option>
-		<option value="minuxchat">minuxgix.tk</option>
           </select>
           <label>Server/Fork</label>
         </div>
@@ -121,19 +120,28 @@
 	 <div id="modal1" class="modal bottom-sheet">
 		<div class="modal-content">
 			<h4>HatClient Settings</h4>
-				<p>A bunch of text</p>
+				<div class="col s12">
+				<div class="row">
+				<div class="input-field col s1">
+					<select id="themechoice">
+						<option value="default">Default</option>
+						<option value="dark">Dark</option>
+					</select>
+					<label>Theme:</label>
+				</div>
+				</div>
+				</div>
 		</div>
 
 		<div class="modal-footer">
-		  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
-		  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+		  <a href="#!" onclick="saveSettings()" class=" modal-action modal-close waves-effect waves-green btn-flat">Save Settings</a>
 		</div>
 	</div>
 	<!-- -->
 	<div id="about" class="modal">
 		<div class="modal-content">
 			<h4>About HatClient</h4>
-				<p>HatClient is a custom client for forks of <a href="#">hack.chat</a>.<br>It is currently <b>unfinished</b>.<br><br><b>VERSION:</b> 0.1<br><b>LAST UPDATED:</b> February 18, 2017</p>
+				<p>HatClient is a custom client for forks of <a href="#">hack.chat</a>.<br>It is currently <b>unfinished</b>.<br><br><b>VERSION:</b> 0.1<br><b>LAST UPDATED:</b> February 18, 2017<br><b>THEME:</b><span id="curTheme"></span></p>
 		</div>
 		<div class="modal-footer">
 		  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
