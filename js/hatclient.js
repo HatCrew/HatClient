@@ -7,6 +7,7 @@
 function $(query) {return document.querySelector(query)}
 
 loadTheme();
+loadFromLocal();
 
 function initialize() {
 	alert("Please note that this an early demo, and that some features may not work properly. Also, I suck at making things responsive :P");
@@ -16,11 +17,16 @@ function initialize() {
 	var chatRoom = document.getElementById("room").value;
 	
 	document.getElementById("welcomepage").className = "welcomepage hidden";
-	//document.getElementById("welcomepagemobile").className = "welcomepage hidden";
-	//document.getElementById("chatformcont").className = "container";
 	document.getElementById("main").className = "";
-	//document.getElementById("messages").className = "messages";
 	document.getElementById("optionsNav").className = "nav-extended black";
+	
+	var rememberme = document.getElementById("rememberme").checked
+	if (rememberme == true) {
+	localStorage.setItem("username", chatUsername);
+	localStorage.setItem("password", chatPass);
+	} else {
+	//Do absolutely nothing
+	}
 	
 	join(chatRoom, chatUsername, chatPass, chatServer);
 
@@ -34,11 +40,15 @@ function initialize() {
 		   if (message == ".help") {
 			pushMessage({nick: '## HatClient ##', text: 'Commands: .ban [user], .online'})
 		   } else if (message.substring(0, 5) == ".ban ") {
-			   var userToBan = message.substring(5, message.length);
+			   var userToBan = message.substring(6);
 			   send({cmd: 'ban', nick: userToBan});
 		   } else if (message == ".online") {
 			    var onlineList = onlineUsers.join(', ') + '.';
 				pushMessage({nick: '## HatClient ##', text: 'Users online: ' + onlineList});
+		   } else if (message.substring(0, 10) == ".setTheme ") {
+			   	var setTheme = message.substring(10);
+				localStorage.setItem("theme", setTheme);
+				loadTheme();
 		   } else {
            send({cmd: 'chat', text: message});
 		   }
@@ -128,7 +138,6 @@ var COMMANDS = {
 		nicks.forEach(function(nick) {
 			userAdd(nick)
 		})
-		// DEBUG pushMessage({nick: '#', text: "HatClient connected to " + chatRoom});
 		pushMessage({nick: '*', text: "Users online: " + nicks.join(", ")})
 	},
 	onlineAdd: function(args) {
@@ -165,12 +174,22 @@ function parseLinks(g0) {
 	a.target = '_blank'
 	return a.outerHTML
 }
+function loadFromLocal() {
+	if ("username" in localStorage && "password" in localStorage) {
+		var userBox = document.getElementById("username");
+		var passBox = document.getElementById("password");
+		userBox.value = localStorage.getItem("username");
+		passBox.value = localStorage.getItem("password");
+		var rememberme = document.getElementById("rememberme");
+		rememberme.checked = true;
+	} else {
+		// Do nothing
+	}
+}
 
 function saveSettings() {
 	var userTheme = document.getElementById("themechoice").value
 	localStorage.setItem("theme", userTheme);
-	/*alert("Theme set, sorry for the refresh");
-	window.location.reload();*/
 	loadTheme();
 }
 
@@ -219,12 +238,9 @@ var onlineUsers = []
 var ignoredUsers = []
 
 function pushMessage(args) {
-	// DEBUG console.log("DEBUG - msg: " + JSON.stringify(args));
-	// Message container
 	var messageEl = document.createElement('li')
 	messageEl.classList.add('collection-item')
 	messageEl.classList.add('avatar')
-	//messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle">chat</i>'
 
 	if (args.nick == chatUsername) {
 		messageEl.classList.add('me')
@@ -237,13 +253,9 @@ function pushMessage(args) {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle black">star</i>'
 	}
 	else if (args.admin) {
-		//document.getElementById("userimage").replace = "<i id='userimage' class='material-icons circle green'>verified_user</i>"
-		//messageEl.add('<i class="material-icons circle red">verified_user</i>')
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle red">verified_user</i>'
 	}
 	else if (args.mod) {
-		//document.getElementById("userimage").replace = "<i id='userimage' class='material-icons circle red'>verified_user</i>"
-		//messageEl.add('<i class="material-icons circle green">verified_user</i>')
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle green">verified_user</i>'
 	} else if (args.trip == "PASwd4") {
 		messageEl.innerHTML = messageEl.innerHTML + '<img src="img/hat.png" alt="" class="circle">'
@@ -263,24 +275,16 @@ function pushMessage(args) {
 	if (args.nick) {
 		var nickSpanEl2 = document.createElement('span')
 		nickSpanEl2.innerHTML = nickSpanEl2.innerHTML + args.nick + '</span>'
-		/*nickLinkEl.onclick = function() {
-			insertAtCursor("@" + args.nick + " ")
-			$('#chatinput').focus()
-		}*/
-		//var date = new Date(args.time || Date.now())
-		//nickLinkEl.title = date.toLocaleString()
 		nickSpanEl.appendChild(nickSpanEl2)
 	}
 	
 	if (args.trip) {
 		var tripEl = document.createElement('p')
 		tripEl.innerHTML = tripEl.innerHTML + "<span style='color: grey'>" + args.trip + "</span>"
-		//tripEl.classList.add('trip')
 		nickSpanEl.appendChild(tripEl)
 	} else {
 		var tripEl = document.createElement('p')
 		tripEl.innerHTML = tripEl.innerHTML + "<span style='color: grey'>No Trip</span>"
-		//tripEl.classList.add('trip')
 		nickSpanEl.appendChild(tripEl)
 	}
 
@@ -291,27 +295,7 @@ function pushMessage(args) {
 	textEl.innerHTML = textEl.innerHTML + args.text || ''
 	textEl.innerHTML = textEl.innerHTML.replace(/</g, "&lt;").replace(/>/g, "&gt;")
 	textEl.innerHTML = textEl.innerHTML.replace(/(\?|https?:\/\/)\S+?(?=[,.!?:)]?\s|$)/g, parseLinks)
-	//textEl.innerHTML = textEl.innerHTML.replace(/</g, "&lt;").replace(/>/g, "&gt;")
-	var comingsoon = "Feature coming soon";
-	//textEl.innerHTML = textEl.innerHTML + '</p><a href="#" onclick="ignoredUsers.push(args.nick)" class="secondary-content"><i class="material-icons">volume_off</i></a><a href="#" onclick="alert(comingsoon)" class="secondary-content"><i class="material-icons">textsms</i></a>&nbsp;&nbsp;&nbsp;&nbsp;'
-	//textEl.innerHTML = textEl.innerHTML + '</p><a href="#" onclick="send({cmd: \'invite\', nick: \'args.nick\'})"; class="secondary-content"><i class="material-icons">textsms</i></a>'
-	//textEl.innerHTML = textEl.innerHTML + '</p><a href="#" class="secondary-content"><i class="material-icons">settings</i></a>'
 	textEl.innerHTML = textEl.innerHTML + '</p>'
-
-	/*if ($('#parse-latex').checked) {
-		// Temporary hotfix for \rule spamming, see https://github.com/Khan/KaTeX/issues/109
-		textEl.innerHTML = textEl.innerHTML.replace(/\\rule|\\\\\s*\[.*?\]/g, '')
-		try {
-			renderMathInElement(textEl, {delimiters: [
-				{left: "$$", right: "$$", display: true},
-				{left: "$", right: "$", display: false},
-			]})
-		}
-		catch (e) {
-			console.warn(e)
-		}
-	}*/
-
 	// Scroll to bottom
 	var atBottom = isAtBottom();
 
