@@ -9,6 +9,14 @@
 ![Admin and Mod messages](http://paswd4.com/s/b3arqj.png)<br>
 ###This is an **EARLY DEMO**, some features do not work as intended.
 
+## Features Coming Soon
+### Custom Avatars
+I plan to add the ability to upload an image for your custom avatar, that will be shown beside your name. (To anyone using the latest version of HatClient)
+There are a few implemented as tests:<br><br>
+![Custom Avatars Example](http://paswd4.com/s/udd742.png)
+
+### Easy Switching Between Rooms/Forks
+Also coming soon, I plan to add a 'tab-system' to switch between multiple rooms or servers without having to leave the client!<br>In theory, you'll be able to seamlessly switch between rooms without ever disconnecting!<br>(no image)<br>
 ## Contributors/Credits
 - Thanks to [@marzavec](https://github.com/marzavec) for adding auto-scroll, and motivating me
 
