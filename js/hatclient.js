@@ -38,7 +38,7 @@ function initialize() {
 
            event.preventDefault();
 		   if (message == ".help") {
-			pushMessage({nick: '## HatClient ##', text: 'Commands: .ban [user], .online'})
+			pushMessage({nick: '## HatClient ##', text: 'Commands: .ban [user], .online, .setTheme [theme], .stats'})
 		   } else if (message.substring(0, 5) == ".ban ") {
 			   var userToBan = message.substring(6);
 			   send({cmd: 'ban', nick: userToBan});
@@ -49,6 +49,8 @@ function initialize() {
 			   	var setTheme = message.substring(10);
 				localStorage.setItem("theme", setTheme);
 				loadTheme();
+		   } else if (message == ".stats") {
+			   send({cmd: 'stats'});
 		   } else {
            send({cmd: 'chat', text: message});
 		   }
