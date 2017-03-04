@@ -75,7 +75,7 @@ function join(channel, cUsername, cPassword, cServer) {
 	if (cServer == "hackchat") {
 		ws = new WebSocket('wss://hack.chat/chat-ws');
 	} else if (cServer == "32chat") {
-		ws = new WebSocket('ws://chat.32ch.org:6060');
+		ws = new WebSocket('ws://chat.32ch.org:80');
 	} else if (cServer == "toastychat") {
 		ws = new WebSocket('wss://chat.toastystoemp.com/chatws');
 	} else if (cServer == "sleepychat") {
