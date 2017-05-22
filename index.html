@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>HatClient v0.1</title>
+    <title>HatClient v0.2</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/newstyle.css">
@@ -14,15 +14,15 @@
 
 <body>
 	<nav class="nav-extended black" role="navigation">
-		<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">HatClient<span>v0.1</span></a>
+		<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">HatClient<span>v0.2</span></a>
 		<ul class="right hide-on-med-and-down">
 			<li><a href="#about">About</a></li>
-			<li><a href="#">Help</a></li>
+			<li><a href="#help">Help</a></li>
 			<li><a href="#modal1">Settings</a></li>
 		</ul>
 		<ul id="nav-mobile" class="right side-nav">
 			<li><a href="#about">About</a></li>
-			<li><a href="#">Help</a></li>
+			<li><a href="#help">Help</a></li>
 			<li><a href="#modal1">Settings</a></li>
 		</ul>
 		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -96,10 +96,10 @@
       </div>
       <div class="row">
         <div class="col s9 offset-s1 center-align">
-	  <p>
-	    <input type="checkbox" class="filled-in" id="rememberme"/>
-	    <label for="rememberme">Remember Me</label>
-	  </p>
+			<p>
+				<input type="checkbox" class="filled-in" id="rememberme"/>
+				<label for="rememberme">Remember Me</label>
+			</p>
           <button class="btn waves-effect waves-light" onclick="initialize()">Login</button>
         </div>
       </div>
@@ -146,7 +146,16 @@
 	<div id="about" class="modal">
 		<div class="modal-content">
 			<h4>About HatClient</h4>
-				<p>HatClient is a custom client for forks of <a href="#">hack.chat</a>.<br>It is currently <b>unfinished</b>.<br><br><b>VERSION:</b> 0.1<br><b>LAST UPDATED:</b> February 18, 2017<br><b>THEME:</b><span id="curTheme"></span></p>
+				<p>HatClient is a custom client for forks of <a href="#">hack.chat</a>.<br>It is currently <b>unfinished</b>.<br><br><b>VERSION:</b> 0.2.0<br><b>LAST UPDATED:</b> April 4, 2017<br><b>THEME:</b><span id="curTheme"></span></p>
+		</div>
+		<div class="modal-footer">
+		  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+		</div>
+	</div>
+	<div id="help" class="modal">
+		<div class="modal-content">
+			<h4>HatClient Help</h4>
+			<p>Help coming soon, sorry.</p>
 		</div>
 		<div class="modal-footer">
 		  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
@@ -180,7 +189,7 @@
   </div>
   <!-- (while I could combine both the invite and ignore modals, I think it's better to have separate ones -->
 	<script src="js/jquery-2.1.1.min.js"></script>
-	<script src="js/hatclient.js"></script>
+	<script src="js/hatclient.js" charset="utf-8"></script>
 	<script src="js/materialize.min.js"></script>
 	<script src="js/init.js"></script>
 </body>
