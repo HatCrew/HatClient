@@ -10,7 +10,7 @@ loadTheme();
 loadFromLocal();
 
 function initialize() {
-	alert("Please note that this an early demo, and that some features may not work properly. Also, I suck at making things responsive :P");
+	//alert("Please note that this an early demo, and that some features may not work properly. Also, I suck at making things responsive :P");
 	var chatUsername = document.getElementById("username").value;
 	var chatPass = document.getElementById("password").value;
 	var chatServer = document.getElementById("serverchoice").value;
@@ -37,19 +37,19 @@ function initialize() {
            if(message.length <= 0) return;
 
            event.preventDefault();
-		   if (message == ".help") {
+		   if (message == "/help") {
 			pushMessage({nick: '## HatClient ##', text: 'Commands: .ban [user], .online, .setTheme [theme], .stats'})
-		   } else if (message.substring(0, 5) == ".ban ") {
+		   } else if (message.substring(0, 5) == "/ban ") {
 			   var userToBan = message.substring(6);
 			   send({cmd: 'ban', nick: userToBan});
-		   } else if (message == ".online") {
+		   } else if (message == "/online") {
 			    var onlineList = onlineUsers.join(', ') + '.';
 				pushMessage({nick: '## HatClient ##', text: 'Users online: ' + onlineList});
-		   } else if (message.substring(0, 10) == ".setTheme ") {
+		   } else if (message.substring(0, 10) == "/setTheme ") {
 			   	var setTheme = message.substring(10);
 				localStorage.setItem("theme", setTheme);
 				loadTheme();
-		   } else if (message == ".stats") {
+		   } else if (message == "/stats") {
 			   send({cmd: 'stats'});
 		   } else {
            send({cmd: 'chat', text: message});
@@ -85,8 +85,9 @@ function join(channel, cUsername, cPassword, cServer) {
 	} else if (cServer == "minuxchat") {
 		ws = new WebSocket('ws://minuxgix.tk/app1/');
 	} else {
-		alert("An error occurred, check your server selection");
-		window.location.reload();
+		pushMessage({nick: '## HatClient ##', text: 'You are not connected. If you were previously in a channel, please wait a few moments.'})
+		/*alert("An error occurred, check your server selection");
+		window.location.reload();*/
 	}
 
 	var wasConnected = false
