@@ -210,6 +210,17 @@ function loadTheme() {
 		document.getElementById("curTheme").innerHTML = " Dark";
 		var themeChoice = document.getElementById("themechoice");
 		themeChoice.value = localStorage.getItem("theme");
+	} else if (clientTheme == "solarized") { 
+		var head = document.head;
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.id = 'themesheet';
+		link.href = 'css/solarizedtheme.css';
+		head.appendChild(link);
+		console.log("DEBUG - **Solarized theme loaded**");
+		document.getElementById("curTheme").innerHTML = " Solarized";
+		var themeChoice = document.getElementById("themechoice");
+		themeChoice.value = localStorage.getItem("theme");
 	} else {
 		localStorage.setItem("theme", "default");
 		document.getElementById("curTheme").innerHTML = " Default";
