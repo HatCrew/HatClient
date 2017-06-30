@@ -6,7 +6,7 @@
 ![Main Screen](http://paswd4.com/s/ds59he.png)
 
 ## HatClient recognizes Moderators and Admins
-![Admin and Mod messages](http://paswd4.com/s/b3arqj.png)<br>
+![Admin and Mod messages](http://paswd4.com/s/apx72c.png)<br>
 ### This is an **EARLY DEMO**, some features do not work as intended.
 
 ## Features Coming Soon
