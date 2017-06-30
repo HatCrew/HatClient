@@ -2,8 +2,8 @@
 
 ## About
 #### HatClient is a custom client for forks of [hack.chat](https://github.com/AndrewBelt/hack.chat "hack.chat")
-![Login Screen](http://paswd4.com/s/h8yp3x.png)
-![Main Screen](http://paswd4.com/s/wnjh6j.png)
+![Login Screen](http://paswd4.com/s/a2r98h.png)
+![Main Screen](http://paswd4.com/s/ds59he.png)
 
 ## HatClient recognizes Moderators and Admins
 ![Admin and Mod messages](http://paswd4.com/s/b3arqj.png)<br>
