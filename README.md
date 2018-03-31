@@ -2,8 +2,9 @@
 
 ## About
 #### HatClient is a custom client for forks of [hack.chat](https://github.com/AndrewBelt/hack.chat "hack.chat")
-![Login Screen](http://paswd4.com/s/a2r98h.png)
-![Main Screen](http://paswd4.com/s/ds59he.png)
+![About](http://s.paswd4.com/hc03.png)
+![Login Screen](http://s.paswd4.com/hc01.png)
+![Main Screen](http://s.paswd4.com/hc02.png)
 
 ## HatClient recognizes Moderators and Admins
 ![Admin and Mod messages](http://paswd4.com/s/apx72c.png)<br>
@@ -22,7 +23,7 @@ Also coming soon, I plan to add a 'tab-system' to switch between multiple rooms 
 HatClient currently has support for some themes which change colors and more, but it will soon have over 15 different themes. Perfect for any user!<br>The current themes available for HatClient include:<br>
 * Default (The default, white backround and black text theme)
 * Dark (Dark background, grey text)
-* Solarized (Uh.. the default you see on ToastyChat)<br>
+* Solarized<br>
 (Screenshots coming soon)
 
 ### Built-in Emoji Menu
@@ -34,14 +35,18 @@ HatClient will soon have an emoji menu, which will allow you to select an emoji 
 Commands
 ========
 There are a few built-in commands for HatClient
-- `/help` displays all commands
-- `/ban [user]` ban's a user if the user connected to HatClient is a mod
-- `/online` displays the current users online in the current room
-- `/setTheme [theme]` Allows you to set a theme without navigating to the 'Settings' menu
-- `/stats` Displays the number of unique IP's connected and the number of channels currently created on that fork
+- `/help` — Displays all available commands.
+- `/online` — Displays the number of users connected to the current room.
+- `/stats` — Displays the number of unique IP's connected to the current fork, as well as the number of channels in use.
+- `/morestats` — Displays additional information about the current fork, such as the number of messages sent and server uptime.
+- `/setTheme [theme]` — Changes HatClient's theme without navigating to the settings menu. Available themes are `dark`, `solarized`, and `default`.
+### Mod-Only Commands
+- `/ban [user]` — Bans a user from the server.
+- `/kick [user]` — Kicks a user from the channel.
 <br><br>More commands will be added in the future.
 
-## Adding a Server/Fork to HatClient
+Adding a Server/Fork to HatClient
+=================================
 #### (I plan to automate this in the future)
 Adding your own fork to the list requires a few steps.<br><br>
 **Details coming soon**
