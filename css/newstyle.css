@@ -13,10 +13,32 @@
 .hidden {
 	display: none;
 }
+#welcomepage {
+	margin-top: 15px;
+}
 pre {
 	display: inline;
 	font-family: 'Roboto';
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 .me span::after {
 	content: "(you)";
 }
+#rememberme {
+	float: left;
+	text-align: left;
+}
+.cmd {
+	background: #E5E5E5;
+	padding: .2em .4em;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.cmds li {
+	margin-bottom: 5px;
+}
+.modal { max-height: 100% !important }

@@ -2,7 +2,7 @@
 	var chatPass = document.getElementById("password").value;
 	var chatServer = document.getElementById("serverchoice").value;
 	var chatRoom = document.getElementById("room").value;
-
+	// Why is this ^ here twice? I don't know. 
 
 function $(query) {return document.querySelector(query)}
 
@@ -10,7 +10,6 @@ loadTheme();
 loadFromLocal();
 
 function initialize() {
-	//alert("Please note that this an early demo, and that some features may not work properly. Also, I suck at making things responsive :P");
 	var chatUsername = document.getElementById("username").value;
 	var chatPass = document.getElementById("password").value;
 	var chatServer = document.getElementById("serverchoice").value;
@@ -38,10 +37,13 @@ function initialize() {
 
            event.preventDefault();
 		   if (message == "/help") {
-			pushMessage({nick: '## HatClient ##', text: 'Commands: .ban [user], .online, .setTheme [theme], .stats'})
+			pushMessage({nick: '## HatClient ##', text: 'Commands: /help, /online, /stats, /morestats, /setTheme [theme], /ban [user], /kick [user].'})
 		   } else if (message.substring(0, 5) == "/ban ") {
 			   var userToBan = message.substring(6);
 			   send({cmd: 'ban', nick: userToBan});
+		   } else if (message.substring(0, 6) == "/kick ") {
+			   var userToKick = message.substring(7);
+			   send({cmd: 'kick', nick: userToKick});
 		   } else if (message == "/online") {
 			    var onlineList = onlineUsers.join(', ') + '.';
 				pushMessage({nick: '## HatClient ##', text: 'Users online: ' + onlineList});
@@ -51,6 +53,8 @@ function initialize() {
 				loadTheme();
 		   } else if (message == "/stats") {
 			   send({cmd: 'stats'});
+		   } else if (message == "/morestats") {
+			   send({cmd: 'morestats'});
 		   } else {
            send({cmd: 'chat', text: message});
 		   }
@@ -86,15 +90,12 @@ function join(channel, cUsername, cPassword, cServer) {
 		ws = new WebSocket('ws://minuxgix.tk/app1/');
 	} else {
 		pushMessage({nick: '## HatClient ##', text: 'You are not connected. If you were previously in a channel, please wait a few moments.'})
-		/*alert("An error occurred, check your server selection");
-		window.location.reload();*/
 	}
 
 	var wasConnected = false
 
 	ws.onopen = function() {
 		if (myNick) {
-			//localStorageSet('my-nick', myNick)
 			if (cServer == "toastychat") {
 				send({cmd: 'join', channel: channel, nick: cUsername, pass: cPassword})
 			} else {
@@ -146,12 +147,12 @@ var COMMANDS = {
 	onlineAdd: function(args) {
 		var nick = args.nick
 		userAdd(nick)
-		pushMessage({nick: '*', text: nick + " joined"})
+		pushMessage({nick: '*', text: nick + " has joined the channel."})
 	},
 	onlineRemove: function(args) {
 		var nick = args.nick
 		userRemove(nick)
-		pushMessage({nick: '*', text: nick + " left"})
+		pushMessage({nick: '*', text: nick + " has left the channel."})
 	},
 }
 function userAdd(nick) {
@@ -197,14 +198,14 @@ function saveSettings() {
 }
 
 function loadTheme() {
-	//Stuff for dark theme
+	//This method is stupid.
 	var clientTheme = localStorage.getItem("theme");
 	if (clientTheme == "dark") {
 		var head = document.head;
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.id = 'themesheet';
-		link.href = 'css/darktheme.css';
+		link.href = 'css/themes/dark.css';
 		head.appendChild(link);
 		console.log("DEBUG - **Dark theme loaded**");
 		document.getElementById("curTheme").innerHTML = " Dark";
@@ -215,7 +216,7 @@ function loadTheme() {
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.id = 'themesheet';
-		link.href = 'css/solarizedtheme.css';
+		link.href = 'css/themes/solarized.css';
 		head.appendChild(link);
 		console.log("DEBUG - **Solarized theme loaded**");
 		document.getElementById("curTheme").innerHTML = " Solarized";
@@ -258,13 +259,17 @@ function pushMessage(args) {
 
 	if (args.nick == chatUsername) {
 		messageEl.classList.add('me')
+		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle black">mood</i>'
+		args.nick = args.nick + ' <b style="background:#E5E5E5;padding:2px;padding-left:5px;padding-right:5px;border-radius:3px;color:white;margin-left:5px;">YOU</b>';
 	}
 	else if (args.nick == '!') {
 		messageEl.classList.add('warn')
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle orange">error_outline</i>'
+		args.nick = args.nick + ' <b style="background:orange;padding:2px;padding-left:5px;padding-right:5px;border-radius:3px;color:white;margin-left:5px;">SERVER</b>';
 	}
 	else if (args.nick == '*') {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle black">star</i>'
+		args.nick = args.nick + ' <b style="background:black;padding:2px;padding-left:5px;padding-right:5px;border-radius:3px;color:white;margin-left:5px;">SERVER</b>';
 	}
 	else if (args.admin) {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle red">verified_user</i>'
@@ -273,12 +278,9 @@ function pushMessage(args) {
 	else if (args.mod) {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle green">verified_user</i>'
 		args.nick = args.nick + ' <b style="background:#4CAF50;padding:2px;padding-left:5px;padding-right:5px;border-radius:3px;color:white;margin-left:5px;">MOD</b>';
-	} else if (args.trip == "PASwd4") {
+	} else if (args.trip == "15aMxC") {
 		messageEl.innerHTML = messageEl.innerHTML + '<img src="img/hat.png" alt="" class="circle">'
-	} else if (args.trip == "LryRS0") {
-		messageEl.innerHTML = messageEl.innerHTML + '<img src="img/minus.jpg" alt="" class="circle">'
-	} else if (args.trip == "KIDnOF" || args.trip == "cEys77" || args.trip == "C7AHVZ") {
-		messageEl.innerHTML = messageEl.innerHTML + '<img src="img/nano.jpg" alt="" class="circle">'
+		args.nick = args.nick + ' <b style="background:black;padding:2px;padding-left:5px;padding-right:5px;border-radius:3px;color:white;margin-left:5px;">HatClient Creator</b>';
 	} else {
 		messageEl.innerHTML = messageEl.innerHTML + '<i id="userimage" class="material-icons circle">chat</i>'
 	}
@@ -320,10 +322,10 @@ function pushMessage(args) {
 
 	if (atBottom) {
 		window.scrollTo(0, Math.max( document.body.scrollHeight,
-															document.body.offsetHeight,
-	                       			document.documentElement.clientHeight,
-															document.documentElement.scrollHeight,
-															document.documentElement.offsetHeight ));
+		document.body.offsetHeight,
+		document.documentElement.clientHeight,
+		document.documentElement.scrollHeight,
+		document.documentElement.offsetHeight ));
 	} else {
 		//unread += 1
 	}
@@ -331,10 +333,10 @@ function pushMessage(args) {
 
 function isAtBottom() {
 	var docHeight = Math.max( document.body.scrollHeight,
-														document.body.offsetHeight,
-                       			document.documentElement.clientHeight,
-														document.documentElement.scrollHeight,
-														document.documentElement.offsetHeight );
+	document.body.offsetHeight,
+	document.documentElement.clientHeight,
+	document.documentElement.scrollHeight,
+	document.documentElement.offsetHeight );
 
 	return (docHeight == (window.pageYOffset + window.innerHeight));
 }

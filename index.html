@@ -4,57 +4,30 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>HatClient v0.2</title>
+    <title>HatClient v0.2.1</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/newstyle.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Oswald" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/emoji.css" rel="stylesheet">
 </head>
 
 <body>
+	<div class="navbar-fixed">
 	<nav class="nav-extended black" role="navigation">
-		<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">HatClient<span>v0.2</span></a>
+		<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">HatClient<span>v0.2.1</span></a>
 		<ul class="right hide-on-med-and-down">
 			<li><a href="#about">About</a></li>
-			<li><a href="#help">Help</a></li>
-			<li><a href="#modal1">Settings</a></li>
+			<li><a href="#settingsmodal">Settings</a></li>
 		</ul>
 		<ul id="nav-mobile" class="right side-nav">
 			<li><a href="#about">About</a></li>
-			<li><a href="#help">Help</a></li>
-			<li><a href="#modal1">Settings</a></li>
+			<li><a href="#settingsmodal">Settings</a></li>
 		</ul>
 		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
 		<div class="nav-content">
-			<!--<ul class="tabs tabs-transparent">
-				<li class="tab"><a class="active" href="#test1">?programming</a></li>
-				<li class="tab"><a href="#test2">?programming</a></li>
-				<li class="tab"><a href="#test3">?29dh1bsf</a></li>
-				<li class="tab"><a href="#test4">?a9h2dnna</a></li>
-			</ul>-->
-			<!--<div class="nav-wrapper container">
-				<ul class="right">
-					<li><a href="sass.html"><i class="material-icons">add</i></a></li>
-					<li><a href="sass.html"><i class="material-icons">close</i></a></li>
-					<li><a href="sass.html"><i class="material-icons">refresh</i></a></li>
-					<li><a href="sass.html"><i class="material-icons">settings</i></a></li>
-					<li><a href="sass.html"><i class="material-icons">list</i></a></li>
-				</ul>
-			</div>-->
-		</div>
-		<!--<div class="fixed-action-btn horizontal click-to-toggle">
-			<a class="btn-floating btn-large black">
-				<i class="material-icons">menu</i>
-			</a>
-		<ul>
-			<li><a class="btn-floating green"><i class="material-icons">add</i></a></li>
-			<li><a class="btn-floating red"><i class="material-icons">close</i></a></li>
-			<li><a class="btn-floating blue"><i class="material-icons">refresh</i></a></li>
-			<li><a class="btn-floating grey"><i class="material-icons">settings</i></a></li>
-		</ul>
-		</div>-->
 	</nav>
 	<nav id="optionsNav" class="nav-extended black hidden" role="navigation">
 		<div class="nav-wrapper container"><span>Chat Options:</span>
@@ -64,17 +37,18 @@
 			</ul>
 		</div>
 	</nav>
+	</div>
   <div id="welcomepage" class="container loginform">
     <div class="col s12">
       <div class="row">
         <div class="input-field col s9 offset-s1">
           <select id="serverchoice">
-		<option value="hackchat">hack.chat</option>
+		<option value="hackchat">hack.chat</option><!--
 		<option value="toastychat">chat.toastystoemp.com</option>
 		<option value="32chat">chat.32ch.org</option>
 		<option value="sleepychat">sleepykev.tk:8080</option>
 		<option value="hatchat">paswd4.com/chat</option>
-		<option value="minuxchat">minuxgix.tk</option>
+		<option value="minuxchat">minuxgix.tk</option>-->
           </select>
           <label>Server/Fork</label>
         </div>
@@ -91,16 +65,16 @@
       </div>
       <div class="row">
         <div class="input-field col s9 offset-s1">
-          <input id="password" type="password" placeholder="Password">
+          <input id="password" type="password" placeholder="Password (optional)">
         </div>
       </div>
       <div class="row">
         <div class="col s9 offset-s1 center-align">
-			<p>
+			<p class="right">
 				<input type="checkbox" class="filled-in" id="rememberme"/>
 				<label for="rememberme">Remember Me</label>
-			</p>
-          <button class="btn waves-effect waves-light" onclick="initialize()">Login</button>
+			</p><br><br><br>
+          <button class="btn waves-effect waves-light right" onclick="initialize()">Join Chat</button>
         </div>
       </div>
     </div>
@@ -114,7 +88,10 @@
 		<form class="col s12">
 		  <div class="row">
 			<div class="input-field col s12">
-			  <div id="chatform"><textarea id="icon_prefix2 chatinput" class="materialize-textarea" type="text" autocomplete="off" autofocus></textarea></div>
+			  <div id="chatform"><textarea data-emojiable="converted" data-emoji-input="unicode" data-id="f39e2396-b824-43a7-b432-484cd8fffc28" data-type="original-input"  id="icon_prefix2 chatinput" class="materialize-textarea" type="text" autocomplete="off" placeholder="Type message and press <enter>" autofocus></textarea>
+			  <div class="emoji-menu" data-id="f39e2396-b824-43a7-b432-484cd8fffc28" data-type="menu" style="display: none;"><div class="emoji-items-wrap1"><table class="emoji-menu-tabs"><tbody><tr><td><a class="emoji-menu-tab icon-recent-selected"></a></td><td><a class="emoji-menu-tab icon-smile"></a></td><td><a class="emoji-menu-tab icon-flower"></a></td><td><a class="emoji-menu-tab icon-bell"></a></td><td><a class="emoji-menu-tab icon-car"></a></td><td><a class="emoji-menu-tab icon-grid"></a></td></tr></tbody></table><div class="emoji-items-wrap mobile_scrollable_wrap"><div class="emoji-items"><a href="javascript:void(0)" title=":rainbow:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -675px -75px no-repeat;background-size:725px 100px;" alt=":rainbow:"><span class="label">:rainbow:</span></a><a href="javascript:void(0)" title=":foggy:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -650px -75px no-repeat;background-size:725px 100px;" alt=":foggy:"><span class="label">:foggy:</span></a><a href="javascript:void(0)" title=":new_moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') 0px -75px no-repeat;background-size:725px 100px;" alt=":new_moon:"><span class="label">:new_moon:</span></a><a href="javascript:void(0)" title=":waning_crescent_moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -175px -75px no-repeat;background-size:725px 100px;" alt=":waning_crescent_moon:"><span class="label">:waning_crescent_moon:</span></a><a href="javascript:void(0)" title=":last_quarter_moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -150px -75px no-repeat;background-size:725px 100px;" alt=":last_quarter_moon:"><span class="label">:last_quarter_moon:</span></a><a href="javascript:void(0)" title=":waning_gibbous_moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -125px -75px no-repeat;background-size:725px 100px;" alt=":waning_gibbous_moon:"><span class="label">:waning_gibbous_moon:</span></a><a href="javascript:void(0)" title=":full_moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -100px -75px no-repeat;background-size:725px 100px;" alt=":full_moon:"><span class="label">:full_moon:</span></a><a href="javascript:void(0)" title=":moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -75px -75px no-repeat;background-size:725px 100px;" alt=":moon:"><span class="label">:moon:</span></a><a href="javascript:void(0)" title=":first_quarter_moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -50px -75px no-repeat;background-size:725px 100px;" alt=":first_quarter_moon:"><span class="label">:first_quarter_moon:</span></a><a href="javascript:void(0)" title=":waxing_crescent_moon:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -25px -75px no-repeat;background-size:725px 100px;" alt=":waxing_crescent_moon:"><span class="label">:waxing_crescent_moon:</span></a><a href="javascript:void(0)" title=":cyclone:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -625px -75px no-repeat;background-size:725px 100px;" alt=":cyclone:"><span class="label">:cyclone:</span></a><a href="javascript:void(0)" title=":snowflake:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -575px -75px no-repeat;background-size:725px 100px;" alt=":snowflake:"><span class="label">:snowflake:</span></a><a href="javascript:void(0)" title=":snowman:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -600px -75px no-repeat;background-size:725px 100px;" alt=":snowman:"><span class="label">:snowman:</span></a><a href="javascript:void(0)" title=":tiger2:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -375px -25px no-repeat;background-size:725px 100px;" alt=":tiger2:"><span class="label">:tiger2:</span></a><a href="javascript:void(0)" title=":rat:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -325px -25px no-repeat;background-size:725px 100px;" alt=":rat:"><span class="label">:rat:</span></a><a href="javascript:void(0)" title=":turtle:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -675px 0px no-repeat;background-size:725px 100px;" alt=":turtle:"><span class="label">:turtle:</span></a><a href="javascript:void(0)" title=":snail:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -75px -25px no-repeat;background-size:725px 100px;" alt=":snail:"><span class="label">:snail:</span></a><a href="javascript:void(0)" title=":cow:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_1.png') -300px 0px no-repeat;background-size:725px 100px;" alt=":cow:"><span class="label">:cow:</span></a><a href="javascript:void(0)" title=":confused:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_0.png') -625px -25px no-repeat;background-size:675px 175px;" alt=":confused:"><span class="label">:confused:</span></a><a href="javascript:void(0)" title=":large_blue_circle:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -775px -125px no-repeat;background-size:850px 175px;" alt=":large_blue_circle:"><span class="label">:large_blue_circle:</span></a><a href="javascript:void(0)" title=":small_blue_diamond:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -100px -150px no-repeat;background-size:850px 175px;" alt=":small_blue_diamond:"><span class="label">:small_blue_diamond:</span></a><a href="javascript:void(0)" title=":100:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -250px -125px no-repeat;background-size:850px 175px;" alt=":100:"><span class="label">:100:</span></a><a href="javascript:void(0)" title=":top:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -125px -100px no-repeat;background-size:850px 175px;" alt=":top:"><span class="label">:top:</span></a><a href="javascript:void(0)" title=":exclamation:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') 0px -100px no-repeat;background-size:850px 175px;" alt=":exclamation:"><span class="label">:exclamation:</span></a><a href="javascript:void(0)" title=":o:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -100px -100px no-repeat;background-size:850px 175px;" alt=":o:"><span class="label">:o:</span></a><a href="javascript:void(0)" title=":small_orange_diamond:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -75px -150px no-repeat;background-size:850px 175px;" alt=":small_orange_diamond:"><span class="label">:small_orange_diamond:</span></a><a href="javascript:void(0)" title=":large_blue_diamond:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -50px -150px no-repeat;background-size:850px 175px;" alt=":large_blue_diamond:"><span class="label">:large_blue_diamond:</span></a><a href="javascript:void(0)" title=":small_red_triangle_down:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -800px -125px no-repeat;background-size:850px 175px;" alt=":small_red_triangle_down:"><span class="label">:small_red_triangle_down:</span></a><a href="javascript:void(0)" title=":question:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -25px -100px no-repeat;background-size:850px 175px;" alt=":question:"><span class="label">:question:</span></a><a href="javascript:void(0)" title=":grey_exclamation:"><img src="img/blank.gif" class="img" style="display:inline-block;width:25px;height:25px;background:url('../lib/img//emoji_spritesheet_4.png') -50px -100px no-repeat;background-size:850px 175px;" alt=":grey_exclamation:"><span class="label">:grey_exclamation:</span></a></div></div></div></div>
+		  <i class="emoji-picker-icon emoji-picker fa fa-smile-o" data-id="f39e2396-b824-43a7-b432-484cd8fffc28" data-type="picker"></i>
+		  </div>
 			</div>
 		  </div>
 		</form>
@@ -122,7 +99,7 @@
   </div>
   </div>
 	 <!-- Modal Structure -->
-	 <div id="modal1" class="modal bottom-sheet">
+	 <div id="settingsmodal" class="modal bottom-sheet">
 		<div class="modal-content">
 			<h4>HatClient Settings</h4>
 				<div class="col s12">
@@ -147,7 +124,33 @@
 	<div id="about" class="modal">
 		<div class="modal-content">
 			<h4>About HatClient</h4>
-				<p>HatClient is a custom client for forks of <a href="#">hack.chat</a>.<br>It is currently <b>unfinished</b>.<br><br><b>VERSION:</b> 0.2.0<br><b>LAST UPDATED:</b> April 4, 2017<br><b>THEME:</b><span id="curTheme"></span></p>
+				<p>HatClient is a custom client for forks of <a href="#">hack.chat</a>.
+				<br><br>
+				The goal of HatClient is to provide a working custom interface that is much less minimalistic than the design of hack.chat's built-in client.
+				<br><br>
+				HatClient is currently <b>unfinished</b>, but it will be receiving continuous updates to bring it closer to my final design's vision.
+				<br><hr><br>
+				<h4>Built-In Commands</h4>
+				HatClient has 7 built-in commands. These can be triggered by typing them into the message box.<br>
+				<ul class="cmds">
+				<li><span class="cmd">/help</span> &mdash; Displays all available commands.</li>
+				<li><span class="cmd">/online</span> &mdash; Displays the number of users connected to the current room.</li>
+				<li><span class="cmd">/stats</span> &mdash; Displays the number of unique IP's connected to the current fork, as well as the number of channels in use.</li>
+				<li><span class="cmd">/morestats</span> &mdash; Displays additional information about the current fork, such as the number of messages sent and server uptime.</li>
+				<li><span class="cmd">/setTheme [theme]</span> &mdash; Changes HatClient's theme without navigating to the settings menu. Available themes are <span class=cmd">dark</span>, <span class=cmd">solarized</span>, and <span class=cmd">default</span>.</li>
+				</ul>
+				<h5>Mod-Only Commands</h5>
+				<ul class="cmds">
+				<li><span class="cmd">/ban [user]</span> &mdash; Bans a user from the server.<br></li>
+				<li><span class="cmd">/kick [user]</span> &mdash; Kicks a user from the channel.</li>
+				</ul>
+				<hr><br>
+				<h4>Info</h4>
+				<b>VERSION:</b> 0.2.1
+				<br>
+				<b>LAST UPDATED:</b> March 30th, 2018
+				<br>
+				<b>THEME:</b><span id="curTheme"></span></p>
 		</div>
 		<div class="modal-footer">
 		  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
@@ -188,8 +191,26 @@
       <a href="#" onclick="ignoreUser()" class=" modal-action modal-close waves-effect waves-green btn-flat">Ignore</a>
     </div>
   </div>
-  <!-- (while I could combine both the invite and ignore modals, I think it's better to have separate ones -->
+  <!-- Need to combine both modals at some point -->
 	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/jquery.emojiarea.js"></script>
+	<script src="js/emoji-picker.js"></script>
+	<!-- <script>
+      $(function() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+          emojiable_selector: '[data-emojiable=true]',
+          assetsPath: 'img/',
+          popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+      });
+    </script> -->
 	<script src="js/hatclient.js" charset="utf-8"></script>
 	<script src="js/materialize.min.js"></script>
 	<script src="js/init.js"></script>
